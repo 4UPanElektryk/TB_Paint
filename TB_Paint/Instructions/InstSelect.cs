@@ -11,9 +11,23 @@ namespace TB_Paint.Instructions
 		public InstSelect(string name) : base(name) { }
 		public override void Start(string[] args)
 		{
-			for (int i = 0; i < 4; i++)
+			if (args.Length == 4)
 			{
-				CurrentImage.SelectedArea[i] = int.Parse(args[i]);
+                for (int i = 0; i < 4; i++)
+                {
+                    CurrentImage.SelectedArea[i] = int.Parse(args[i]);
+                }
+            }
+			if (args.Length == 2)
+			{
+                for (int i = 0; i < 2; i++)
+                {
+                    CurrentImage.SelectedArea[i] = int.Parse(args[i]);
+                }
+                for (int i = 2; i < 4; i++)
+                {
+                    CurrentImage.SelectedArea[i] = int.Parse(args[i - 2]);
+                }
             }
 		}
 	}

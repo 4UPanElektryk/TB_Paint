@@ -12,9 +12,25 @@ namespace TB_Paint
 		static void Main(string[] args)
 		{
 			new InstructionMenager();
-			foreach (string item in File.ReadLines(args[0]))
+			if (args.Length == 1)
 			{
-				InstructionMenager.Run(item);
+				foreach (string item in File.ReadLines(args[0]))
+				{
+					InstructionMenager.Run(item);
+				}
+			}
+			else
+			{
+				foreach (string item in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory))
+				{
+					if (item.EndsWith(".inst"))
+					{
+						foreach (string lines in File.ReadLines(item))
+						{
+							InstructionMenager.Run(lines);
+						}
+					}
+				}
 			}
 		}
 	}

@@ -14,7 +14,7 @@ namespace TB_Paint.Instructions
 		{
 			int[] sel = CurrentImage.SelectedArea;
 			Color color = ColorTranslator.FromHtml(args[0]);
-            for (int x = sel[0]; x <= sel[2]; x++)
+			for (int x = sel[0]; x <= sel[2]; x++)
 			{
 				for (int y = sel[1]; y <= sel[3]; y++)
 				{

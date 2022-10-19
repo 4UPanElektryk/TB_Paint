@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="CurrentImage.cs" />
     <Compile Include="InstructionMenager.cs" />
+    <Compile Include="Instructions\InstLoad.cs" />
     <Compile Include="Instructions\InstNew.cs" />
     <Compile Include="Instruction.cs" />
+    <Compile Include="Instructions\InstReplace.cs" />
     <Compile Include="Instructions\InstSave.cs" />
     <Compile Include="Instructions\InstSelect.cs" />
     <Compile Include="Instructions\InstSet.cs" />

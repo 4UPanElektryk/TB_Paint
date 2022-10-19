@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace TB_Paint.Instructions
+namespace TB_Paint
 {
 	public class CurrentImage
 	{
@@ -29,6 +29,10 @@ namespace TB_Paint.Instructions
 		{
 			Image tosave = _Image;
 			tosave.Save(path, ImageFormat.Png);
+		}
+		public static void ImportImage(Bitmap bitmap)
+		{
+			_Image = bitmap;
 		}
 	}
 }

@@ -18,6 +18,8 @@ namespace TB_Paint
                 new InstNew("new"),
                 new InstSelect("sel"),
                 new InstSet("set"),
+                new InstReplace("rep"),
+                new InstLoad("load"),
                 new InstSave("save"),
                 new Instruction("//"),
             };
