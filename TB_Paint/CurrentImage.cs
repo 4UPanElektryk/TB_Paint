@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 
 namespace TB_Paint
 {
@@ -23,17 +22,27 @@ namespace TB_Paint
 		}
 		public static void Save(string path)
 		{
-			Bitmap bmp = new Bitmap(_Image.Width * Scale, _Image.Height * Scale);
-			Console.WriteLine(Scale);
-			for (int x = 0; x < bmp.Height; x++)
+            Console.WriteLine("Width: " + _Image.Width);
+            Console.WriteLine("Heiht: " + _Image.Height);
+			Console.WriteLine("Scale: " + Scale);
+            Console.WriteLine("Scaled Width: " + _Image.Width * Scale);
+            Console.WriteLine("Scaled Heiht: " + _Image.Height * Scale);
+            Image tosave = _Image;
+			if (Scale > 1)
 			{
-				for (int y = 0; y < bmp.Width; y++)
-				{
-					bmp.SetPixel(x, y, _Image.GetPixel(x / Scale, y / Scale));
-				}
-			}
-			Image tosave = bmp;
-			tosave.Save(path, ImageFormat.Png);
+				Console.WriteLine("Rescaliing...");
+				Bitmap bmp = new Bitmap(_Image.Width * Scale, _Image.Height * Scale);
+                for (int x = 0; x < bmp.Height; x++)
+                {
+                    for (int y = 0; y < bmp.Width; y++)
+                    {
+                        bmp.SetPixel(x, y, _Image.GetPixel(x / Scale, y / Scale));
+                    }
+                }
+				tosave = bmp;
+				Console.WriteLine("Done.");
+            }
+			tosave.Save(path);
 		}
 		public static void ImportImage(Bitmap bitmap)
 		{
