@@ -12,7 +12,7 @@ namespace TB_Paint
 	{
 		static private Bitmap _Image;
 		static public int[] SelectedArea = new int[4];
-
+		static public int Scale = 1;
 		public static void New(int height, int width)
 		{
 			_Image = new Bitmap(width, height);
@@ -27,7 +27,16 @@ namespace TB_Paint
 		}
 		public static void Save(string path)
 		{
-			Image tosave = _Image;
+			Bitmap bmp = new Bitmap(_Image.Width * Scale, _Image.Height * Scale);
+			Console.WriteLine(Scale);
+			for (int x = 0; x < bmp.Height; x++)
+			{
+				for (int y = 0; y < bmp.Width; y++)
+				{
+					bmp.SetPixel(x, y, _Image.GetPixel(x / Scale, y / Scale));
+				}
+			}
+			Image tosave = bmp;
 			tosave.Save(path, ImageFormat.Png);
 		}
 		public static void ImportImage(Bitmap bitmap)

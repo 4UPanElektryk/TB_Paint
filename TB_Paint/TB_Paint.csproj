@@ -48,6 +48,7 @@
     <Compile Include="Instruction.cs" />
     <Compile Include="Instructions\InstReplace.cs" />
     <Compile Include="Instructions\InstSave.cs" />
+    <Compile Include="Instructions\InstScale.cs" />
     <Compile Include="Instructions\InstSelect.cs" />
     <Compile Include="Instructions\InstSet.cs" />
     <Compile Include="Program.cs" />

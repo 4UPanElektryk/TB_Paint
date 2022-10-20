@@ -21,6 +21,7 @@ namespace TB_Paint
                 new InstReplace("rep"),
                 new InstLoad("load"),
                 new InstSave("save"),
+                new InstScale("scl"),
                 new Instruction("//"),
             };
         }
