@@ -1,8 +1,8 @@
-﻿namespace TB_Paint.Instructions
+﻿namespace TB_Paint.Rutime.Instructions
 {
 	public class InstSelect : Instruction
 	{
-		public InstSelect(string name) : base(name) { }
+		public InstSelect() : base(){ }
 		public override bool Start(string[] args)
 		{
 			try

@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 
-namespace TB_Paint.Instructions
+namespace TB_Paint.Rutime.Instructions
 {
 	public class InstReplace : Instruction
 	{
-		public InstReplace(string name) : base(name) { }
+		public InstReplace() : base(){ }
 		public override bool Start(string[] args)
 		{
 			try

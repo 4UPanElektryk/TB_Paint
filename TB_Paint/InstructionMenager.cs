@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TB_Paint.Instructions;
 
 namespace TB_Paint
 {
-    public class InstructionMenager
-    {
-        static List<Instruction> _Instructions;
-        public InstructionMenager()
-        {
+	public class InstructionMenager
+	{
+		public static List<Instruction> _Instructions;
+		public static void Initialize()
+		{
             _Instructions = new List<Instruction>
             {
                 new InstNew("new"),
@@ -18,19 +19,40 @@ namespace TB_Paint
                 new InstLoad("load"),
                 new InstSave("save"),
                 new InstScale("scl"),
-                new Instruction("//"),
             };
-        }
-        public static void Run(string text)
-        {
-            string[] args = text.Split(' ');
-            foreach (Instruction item in _Instructions)
-            {
-                if (item.Name == args[0].ToLower())
+        } 
+		public static bool RunCins(string text)
+		{
+			try
+			{
+                foreach (string item in text.Split(';'))
                 {
-                    item.Start(args.Skip(1).ToArray());
+                    int cmdid = int.Parse(item.Split(':')[0]);
+                    string[] args = item.Split(':')[1].Split(',');
+					if (!_Instructions[cmdid].Start(args))
+					{
+						throw new NotImplementedException("Instruction Read Error");
+					}
                 }
             }
-        }
-    }
+			catch
+			{
+				return false;
+			}
+			
+			return true;
+		}
+		public static bool Run(string text)
+		{
+			string[] args = text.Split(' ');
+			foreach (Instruction item in _Instructions)
+			{
+				if (item.Name == args[0].ToLower())
+				{
+					return item.Start(args.Skip(1).ToArray());
+				}
+			}
+			return false;
+		}
+	}
 }

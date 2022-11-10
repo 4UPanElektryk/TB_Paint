@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 
-namespace TB_Paint.Instructions
+namespace TB_Paint.Rutime.Instructions
 {
 	public class InstSet : Instruction
 	{
-		public InstSet(string name) : base(name) { }
+		public InstSet() : base(){ }
 		public override bool Start(string[] args)
 		{
 			try

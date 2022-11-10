@@ -1,9 +1,8 @@
-﻿namespace TB_Paint
+﻿namespace TB_Paint.Rutime
 {
 	public class Instruction
 	{
-		public string Name;
-		public Instruction(string name) { Name = name; }
+		public Instruction() {}
 		public virtual bool Start(string[] args)
 		{
 			return true;

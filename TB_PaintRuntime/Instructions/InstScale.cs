@@ -1,8 +1,8 @@
-﻿namespace TB_Paint.Instructions
+﻿namespace TB_Paint.Rutime.Instructions
 {
 	public class InstScale : Instruction
 	{
-		public InstScale(string name) : base(name) { }
+		public InstScale() : base(){ }
 		public override bool Start(string[] args)
 		{
 			try

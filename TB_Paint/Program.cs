@@ -7,12 +7,23 @@ namespace TB_Paint
 	{
 		static void Main(string[] args)
 		{
-			new InstructionMenager();
+			InstructionMenager.Initialize();
 			if (args.Length == 1)
 			{
-				foreach (string item in File.ReadLines(args[0]))
+				if (args[0].EndsWith(".inst"))
 				{
-					InstructionMenager.Run(item);
+                    foreach (string item in File.ReadLines(args[0]))
+                    {
+                        InstructionMenager.Run(item);
+                    }
+                }
+				else if (args[0].EndsWith(".cins"))
+                {
+					InstructionMenager.RunCins(File.ReadAllText(args[0]));
+                }
+				else
+				{
+					Console.WriteLine("Incorrect Instruction File");
 				}
 			}
 			else
@@ -21,9 +32,22 @@ namespace TB_Paint
 				{
 					if (item.EndsWith(".inst"))
 					{
-						foreach (string lines in File.ReadLines(item))
+						int i = 0;
+						foreach (string line in File.ReadLines(item))
 						{
-							InstructionMenager.Run(lines);
+							if (!line.StartsWith("//") && line != "")
+							{
+								if (!InstructionMenager.Run(line))
+								{
+									Console.ForegroundColor = ConsoleColor.Red;
+									Console.WriteLine("Line Run Error:");
+									Console.WriteLine("File: " + item);
+									Console.WriteLine("Line: " + i);
+									Console.WriteLine(line);
+									Console.ResetColor();
+								}
+							}
+							i++;
 						}
 					}
 				}

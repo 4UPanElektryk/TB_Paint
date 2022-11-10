@@ -1,8 +1,8 @@
-﻿namespace TB_Paint.Instructions
+﻿namespace TB_Paint.Rutime.Instructions
 {
 	public class InstSave : Instruction
 	{
-		public InstSave(string name) : base(name) { }
+		public InstSave() : base(){ }
 		public override bool Start(string[] args)
 		{
 			try
