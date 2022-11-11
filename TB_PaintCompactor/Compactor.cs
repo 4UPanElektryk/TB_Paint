@@ -33,7 +33,6 @@ namespace TB_Paint.Compactor
 				if (item.Name == args[0].ToLower())
 				{
                     int index = InstructionMenager._Instructions.FindIndex(x => x.Name == args[0].ToLower());
-					System.Console.WriteLine(index);
                     FinalString += index + ":" + string.Join(",", args.Skip(1).ToArray()) + ";";
 					return;
 				}

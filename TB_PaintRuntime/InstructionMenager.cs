@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TB_Paint.Rutime.Instructions;
 
 namespace TB_Paint.Rutime
@@ -8,20 +7,20 @@ namespace TB_Paint.Rutime
 	public class InstructionMenager
 	{
 		static List<Instruction> _Instructions;
-		public InstructionMenager()
-		{
-			_Instructions = new List<Instruction>
-			{
-				new InstNew(),
-				new InstSelect(),
-				new InstSet(),
-				new InstReplace(),
-				new InstLoad(),
-				new InstSave(),
-				new InstScale(),
-			};
-		}
-		public static bool RunCins(string text)
+        public static void Initialize()
+        {
+            _Instructions = new List<Instruction>
+            {
+                new InstNew(),
+                new InstSelect(),
+                new InstSet(),
+                new InstReplace(),
+                new InstLoad(),
+                new InstSave(),
+                new InstScale(),
+            };
+        }
+        public static bool RunCins(string text)
 		{
 			try
 			{

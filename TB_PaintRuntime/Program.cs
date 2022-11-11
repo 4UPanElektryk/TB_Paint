@@ -6,6 +6,7 @@ namespace TB_Paint.Rutime
     {
         static void Main(string[] args)
         {
+            InstructionMenager.Initialize();
             if (args[0].EndsWith(".cins"))
             {
                 InstructionMenager.RunCins(File.ReadAllText(args[0]));
