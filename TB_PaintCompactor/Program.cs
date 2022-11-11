@@ -42,11 +42,11 @@ namespace TB_Paint.Compactor
 			if (founderrors)
 			{
 				Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Found errors while compacting.");
-                Console.WriteLine("Depending on severity, those instructions may not run.");
+				Console.WriteLine("Found errors while compacting.");
+				Console.WriteLine("Depending on severity, those instructions may not run.");
 				Console.ResetColor();
-            }
-			Compactor.Export(args[1]);
+			}
+			Compactor.Export(args[0].Replace(".inst",".cins"));
 		}
 	}
 }
