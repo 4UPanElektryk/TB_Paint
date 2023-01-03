@@ -1,0 +1,25 @@
+{
+  "name": "inst-lang-support",
+  "displayName": "INST Lang Support",
+  "description": "Adds support for INST scripting language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "inst",
+      "aliases": ["INST", "inst"],
+      "extensions": [".inst"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "inst",
+      "scopeName": "source.inst",
+      "path": "./syntaxes/inst.tmLanguage.json"
+    }]
+  }
+}

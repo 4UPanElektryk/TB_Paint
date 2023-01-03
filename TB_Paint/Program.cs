@@ -12,9 +12,22 @@ namespace TB_Paint
 			{
 				if (args[0].EndsWith(".inst"))
 				{
-                    foreach (string item in File.ReadLines(args[0]))
+                    int i = 0;
+                    foreach (string line in File.ReadLines(args[0]))
                     {
-                        InstructionMenager.Run(item);
+                        if (!line.StartsWith("//") && line != "")
+                        {
+                            if (!InstructionMenager.Run(line))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Line Run Error:");
+                                Console.WriteLine("File: " + args[0]);
+                                Console.WriteLine("Line: " + i);
+                                Console.WriteLine(line);
+                                Console.ResetColor();
+                            }
+                        }
+                        i++;
                     }
                 }
 				else if (args[0].EndsWith(".cins"))

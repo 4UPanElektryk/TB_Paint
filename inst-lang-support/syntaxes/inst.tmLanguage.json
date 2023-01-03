@@ -1,0 +1,66 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "INST",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#hex"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+			"begin":"//",
+			"end": "\\n",
+			"name":"comment.line",
+			"patterns": [
+				{
+					"match": "\\\\"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.inst",
+				"match": "\\b(NEW|SEL|SET|REP|LOAD|SAVE|SCL|XTHR)\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+					"name": "constant.numeric",
+					"match": "\\d+"
+				}]
+		},
+		"hex": {
+			"name": "constant.character",
+			"begin": "#",
+			"end": "(\\n| )",
+			"patterns": [
+				{
+					"match": "\\\\."
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.inst",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.inst"
+}

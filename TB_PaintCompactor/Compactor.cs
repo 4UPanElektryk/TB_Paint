@@ -13,16 +13,7 @@ namespace TB_Paint.Compactor
 		public static string FinalString = "";
 		public Compactor()
 		{
-            InstructionMenager._Instructions = new List<Instruction>
-            {
-                new InstNew("new"),
-                new InstSelect("sel"),
-                new InstSet("set"),
-                new InstReplace("rep"),
-                new InstLoad("load"),
-                new InstSave("save"),
-                new InstScale("scl"),
-            };
+			InstructionMenager.Initialize();
         }
 
 		public static void Run(string text)
@@ -34,7 +25,6 @@ namespace TB_Paint.Compactor
 				{
                     int index = InstructionMenager._Instructions.FindIndex(x => x.Name == args[0].ToLower());
                     FinalString += index + ":" + string.Join(",", args.Skip(1).ToArray()) + ";";
-					return;
 				}
 			}
 			throw new NotImplementedException("Instruction Not Found");
