@@ -1,4 +1,13 @@
 @echo off
+
+start msbuild .\TB_Paint\TB_Paint.csproj /t:Build /verbosity:detailed /p:Configuration=Release /p:Platform="AnyCPU"
+start msbuild .\TB_Paint\TB_Paint.csproj /t:Build /verbosity:detailed /p:Configuration=Release /p:Platform="AnyCPU"
+start msbuild .\TB_Paint\TB_Paint.csproj /t:Build /verbosity:detailed /p:Configuration=Release /p:Platform="AnyCPU"
+
+start msbuild .\TB_Paint\TB_Paint.csproj /t:Build /verbosity:detailed /p:Configuration=Release /p:Platform="AnyCPU"
+start msbuild .\TB_Paint\TB_Paint.csproj /t:Build /verbosity:detailed /p:Configuration=Release /p:Platform="AnyCPU"
+start msbuild .\TB_Paint\TB_Paint.csproj /t:Build /verbosity:detailed /p:Configuration=Release /p:Platform="AnyCPU"
+
 COPY ".\TB_Paint\bin\Release\TB_Paint.exe" ".\ToRelease\TB_Paint.exe"
 COPY ".\TB_Paint\bin\x64\Release\TB_Paint.exe" ".\ToRelease\TB_Paint_x64.exe"
 
